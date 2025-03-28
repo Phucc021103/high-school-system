@@ -1,0 +1,38 @@
+<nav th:fragment="navigation" class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Teacholy</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse w-100" id="collapsibleNavId">
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                <li class="nav-item d-flex justify-content-center align-items-center">
+                    <a th:class="'nav-link ' +  ${(active == '/' || active == '') ? 'active' : ''}" th:href="'/'" aria-current="page">Home <span
+                            class="visually-hidden">(current)</span></a>
+                </li>
+                <li class="nav-item d-flex justify-content-center align-items-center">
+                    <a th:class="'nav-link ' +  ${#strings.equals(active, 'about') ?  'active' : ''}" th:href="@{'/?component=about'}">About us</a>
+                </li>
+                <li class="nav-item d-flex justify-content-center align-items-center">
+                    <a href="#" th:class="'nav-link ' +  ${#strings.equals(active, 'management') ? 'active' : ''}" th:href="@{'/?component='}">Management</a>
+                </li>
+                <li class="nav-item d-flex justify-content-center align-items-center">
+                    <a href="#" th:class="'nav-link ' +  ${#strings.equals(active, 'event') ? 'active' : ''}" th:href="@{'/?component='}">News & Event</a>
+                </li>
+                <li class="nav-item d-flex justify-content-center align-items-center">
+                    <a href="#" th:class="'nav-link ' +  ${#strings.equals(active, 'gallery') ? 'active' : ''}" th:href="@{'/?component='}">Gallery</a>
+                </li>
+                <li class="nav-item d-flex justify-content-center align-items-center">
+                    <a href="#" th:class="'nav-link ' +  ${#strings.equals(active, 'contact') ? 'active' : ''}" th:href="@{'/?component=contact'}">Contact us</a>
+                </li>
+                <li class="nav-item d-flex justify-content-center align-items-center">
+                    <a th:href="@{'/?component=chooseLogin'}" class="nav-link">
+                        <button class="btn-login">Login</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

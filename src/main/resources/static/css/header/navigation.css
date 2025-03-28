@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+}
+input,
+select,
+textarea {
+    background-color: transparent;
+    outline: none;
+}
+button {
+    cursor: pointer;
+    background-color: transparent;
+    outline: none;
+    border: 0;
+}
+body {
+    min-height: 100vh;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1;
+    --bs-body-font-family: 'Poppins', sans-serif;
+}
+
+.navbar .nav-item {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.navbar .active {
+    color: var(--color-primary) !important;
+}
+
+.navbar .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-left: 1rem;
+}
+
+.navbar .btn-login {
+    padding: 15px 40px;
+    border-radius: 50px;
+    border: 0;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.5s ease;
+}
+
+.navbar .btn-login:hover {
+    background-color: var(--color-primary);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(130, 196, 211) 0px 7px 29px 0px;
+}
+
+.navbar .btn-login:active {
+    background-color: rgb(65, 180, 206);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(99, 196, 218) 0px 0px 0px 0px;
+    transform: translateY(3px);
+    transition: 100ms;
+}

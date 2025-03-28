@@ -1,0 +1,119 @@
+<div th:fragment="sidebar" id="sidebar" class="active" xmlns:th="http://www.thymeleaf.org">
+    <div class="sidebar-wrapper active">
+        <div class="sidebar-header">
+            <div class="d-flex justify-content-between">
+                <div class="logo">
+                    <a th:href="@{/auth/admin}" class="text-decoration-none text-dark"><h2>Teacholy</h2></a>
+                </div>
+                <div class="toggler">
+                    <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <ul class="menu">
+                <li class="sidebar-title">Menu</li>
+
+                <li th:class="'sidebar-item ' + ${#strings.equals(active, 'dashboard') ? 'active' : ''}">
+                    <a th:href="@{/auth/admin}" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li th:class="'sidebar-item ' + ${#strings.equals(active, 'departments') ? 'active' : ''}">
+                    <a th:href="@{/auth/admin/department}" class='sidebar-link'>
+                        <i class="bi bi-buildings"></i>
+                        <span>Departments</span>
+                    </a>
+                </li>
+                <li class="sidebar-title">Accounts</li>
+                <li th:class="'sidebar-item has-sub ' + ${#strings.equals(active, 'setting') ? 'active': ''}">
+                    <a href="#" class="sidebar-link">
+                        <i class="bi bi-person-fill-gear"></i>
+                        <span>Account Setting</span>
+                    </a>
+
+                    <ul class="submenu">
+                        <li th:class="'submenu-item ' + ${#strings.equals(sub, 'teacher') ? 'active' : ''}">
+                            <a th:href="@{'/auth/admin/members?filter=teacher&page=1'}" class="submenu-link">
+                                <i class="fa-solid fa-user-graduate"></i>
+                                <span>Teachers</span>
+                            </a>
+                        </li>
+                        <li th:class="'submenu-item ' + ${#strings.equals(sub, 'navigator') ? 'active' : ''}">
+                            <a th:href="@{'/auth/admin/members?filter=navigator&page=1'}" class="submenu-link">
+                                <i class="fa-solid fa-user-graduate"></i>
+                                <span>Navigator</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-title">Level Management</li>
+                <li th:class="'sidebar-item has-sub ' + ${#strings.equals(active, 'levels') ? 'active': ''}">
+                    <a th:href="@{${#strings.equals(active, 'levels') ? '#' :  '/auth/admin/level'}}" class="sidebar-link">
+                        <i class="bi bi-person-fill-gear"></i>
+                        <span>Level</span>
+                    </a>
+
+                    <ul th:class="'submenu ' +  ${#strings.equals(active, 'levels') ? 'active': ''}">
+<!--                        will be rendered -->
+                        <th:block th:each="level : ${levels}">
+                            <li th:class="'submenu-item ' + ${#strings.equals(sub, level.getId()) ? 'active' : ''}">
+                                <a th:href="@{${'/auth/admin/level/' + level.getId()}}" class="submenu-link">
+                                    <i class="fa-solid fa-user-graduate"></i>
+                                    <span th:text="${level.getName()}"></span>
+                                </a>
+                            </li>
+                        </th:block>
+                    </ul>
+                </li>
+
+                <li th:class="'sidebar-item ' + ${#strings.equals(active, 'semesters') ? 'active' : ''}">
+                    <a th:href="@{/auth/admin/semester}" class='sidebar-link'>
+                        <i class="bi bi-clipboard-minus"></i>
+                        <span>Semester</span>
+                    </a>
+                </li>
+
+                <li th:class="'sidebar-item ' + ${#strings.equals(active, 'classes') ? 'active' : ''}">
+                    <a th:href="@{/auth/admin/classes}" class='sidebar-link'>
+                        <i class="fa-solid fa-users-viewfinder"></i>
+                        <span>Class Management</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-title">Scheduling</li>
+                <li th:class="'sidebar-item ' + ${#strings.equals(active, 'subjects') ? 'active' : ''}">
+                    <a th:href="@{/auth/admin/subjects}" class='sidebar-link'>
+                        <i class="bi bi-journal-bookmark-fill"></i>
+                        <span>Subjects</span>
+                    </a>
+                </li>
+
+                <li th:class="'sidebar-item ' + ${#strings.equals(active, 'scheduling') ? 'active' : ''}">
+                    <a th:href="@{/auth/admin/range-scheduling}" class='sidebar-link'>
+                        <i class="bi bi-book-half"></i>
+                        <span>Range Scheduling</span>
+                    </a>
+                </li>
+                <li th:class="'sidebar-item ' + ${#strings.equals(active, 'scheduling_review') ? 'active' : ''}">
+                    <a th:href="@{/auth/admin/review-scheduling}" class='sidebar-link'>
+                        <i class="bi bi-calendar2-event"></i>
+                        <span>Review</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-title">Settings</li>
+
+                <li class="sidebar-item">
+                    <button class="sidebar-link dropdown-item logout fw-bold">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Logout</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+    </div>
+</div>
